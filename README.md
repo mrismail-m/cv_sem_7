@@ -1,6 +1,6 @@
 # Computer Vision
 
-Repository for Computer Vision laboratory research and experiments.
+Repository for Computer Vision laboratory research and experiments. See the results reports within each directory to see detailed results.
 
 ### [Lab 01: Deep Features and Classification](./lab01/)
 Extracted deep features from pretrained convolutional neural networks and evaluated XGBoost classification performance on medical images. Results indicated that combining deep feature extraction with tree ensembles achieves highly accurate skin lesion classification reaching 82.93% accuracy.
