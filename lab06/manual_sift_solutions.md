@@ -11,7 +11,7 @@
 Consider the following $4 \times 4$ grayscale image patch extracted from a $16 \times 16$ image:
 
 ### Visual Diagram for Handwritten Sheet:
-![Question 1: Image Gradient and Vector Diagram](./figures/q1_gradient_vector.svg)
+![Question 1: Image Gradient and Vector Diagram](figures/q1_gradient_vector.png)
 
 ### Image Patch $I$:
 
@@ -93,7 +93,7 @@ $$
 A small image region at two different Gaussian scales is represented by:
 
 ### Visual Matrix Subtraction Diagram:
-![Question 2: DoG Matrix Subtraction and Extremum](./figures/q2_dog_matrix.svg)
+![Question 2: DoG Matrix Subtraction and Extremum](figures/q2_dog_matrix.png)
 
 Calculate the Difference of Gaussians matrix:
 $$
@@ -147,7 +147,7 @@ The center value ($-20$) is strictly less than all eight surrounding spatial nei
 Given DoG values in a local neighborhood:
 
 ### Visual 3D Scale-Space 26-Neighbors Diagram:
-![Question 3: Scale Space 26 Neighbors Diagram](./figures/q3_scale_space_26_neighbors.svg)
+![Question 3: Scale Space 26 Neighbors Diagram](figures/q3_scale_space_26_neighbors.png)
 
 The center pixel has value $15$.
 
@@ -207,7 +207,7 @@ Given four pixels with local gradients:
 | $P_4$ | $3$ | $-3$ |
 
 ### Visual Vectors, 8-Bin Compass & Orientation Histogram:
-![Question 4: Vectors, Compass and Histogram Diagram](./figures/q4_orientation_histogram.svg)
+![Question 4: Vectors, Compass and Histogram Diagram](figures/q4_orientation_histogram.png)
 
 ---
 
