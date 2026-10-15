@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" width="900" height="460" style="background:#ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <marker id="arr-p1" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#2980b9" />
+    </marker>
+    <marker id="arr-p2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#27ae60" />
+    </marker>
+    <marker id="arr-p3" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#8e44ad" />
+    </marker>
+    <marker id="arr-p4" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#e67e22" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="30" font-size="20" font-weight="bold" text-anchor="middle" fill="#333333">Question 4: Gradient Vectors, 8-Bin Compass &amp; Orientation Histogram</text>
+
+  <!-- Part 1: Vectors on Cartesian Plane -->
+  <g transform="translate(30, 70)">
+    <text x="120" y="0" font-size="15" font-weight="bold" text-anchor="middle" fill="#2c3e50">1. Gradient Vectors (Gx, Gy)</text>
+    
+    <!-- Axes -->
+    <line x1="20" y1="140" x2="230" y2="140" stroke="#aaa" stroke-width="2"/>
+    <text x="235" y="145" font-size="12" fill="#777">+x</text>
+    <line x1="125" y1="240" x2="125" y2="30" stroke="#aaa" stroke-width="2"/>
+    <text x="130" y="25" font-size="12" fill="#777">+y</text>
+    
+    <!-- Scale: 20px per unit. Origin at (125, 140) -->
+    <!-- P1: (3, 4) -> (125 + 60, 140 - 80) = (185, 60) -->
+    <line x1="125" y1="140" x2="183" y2="63" stroke="#2980b9" stroke-width="3" marker-end="url(#arr-p1)"/>
+    <text x="190" y="55" font-size="12" font-weight="bold" fill="#2980b9">P1 (53.1°)</text>
+
+    <!-- P2: (0, 5) -> (125, 140 - 100) = (125, 40) -->
+    <line x1="125" y1="140" x2="125" y2="43" stroke="#27ae60" stroke-width="3" marker-end="url(#arr-p2)"/>
+    <text x="135" y="45" font-size="12" font-weight="bold" fill="#27ae60">P2 (90°)</text>
+
+    <!-- P3: (-4, 0) -> (125 - 80, 140) = (45, 140) -->
+    <line x1="125" y1="140" x2="48" y2="140" stroke="#8e44ad" stroke-width="3" marker-end="url(#arr-p3)"/>
+    <text x="25" y="130" font-size="12" font-weight="bold" fill="#8e44ad">P3 (180°)</text>
+
+    <!-- P4: (3, -3) -> (125 + 60, 140 + 60) = (185, 200) -->
+    <line x1="125" y1="140" x2="183" y2="197" stroke="#e67e22" stroke-width="3" marker-end="url(#arr-p4)"/>
+    <text x="190" y="215" font-size="12" font-weight="bold" fill="#e67e22">P4 (315°)</text>
+
+    <!-- Magnitudes key -->
+    <g transform="translate(15, 260)" font-size="12">
+      <text x="0" y="0" fill="#2980b9" font-weight="bold">P1: M=5.0, θ=53.1° (Bin 1)</text>
+      <text x="0" y="20" fill="#27ae60" font-weight="bold">P2: M=5.0, θ=90.0° (Bin 2)</text>
+      <text x="0" y="40" fill="#8e44ad" font-weight="bold">P3: M=4.0, θ=180.0° (Bin 4)</text>
+      <text x="0" y="60" fill="#e67e22" font-weight="bold">P4: M=4.24, θ=315.0° (Bin 7)</text>
+    </g>
+  </g>
+
+  <!-- Part 2: 8-Bin Compass Rose -->
+  <g transform="translate(320, 70)">
+    <text x="120" y="0" font-size="15" font-weight="bold" text-anchor="middle" fill="#2c3e50">2. 8 Orientation Bins (45° each)</text>
+    
+    <g transform="translate(120, 140)">
+      <!-- Outer Circle -->
+      <circle cx="0" cy="0" r="95" fill="#fcfcfc" stroke="#ccc" stroke-width="2"/>
+      
+      <!-- 45-degree divider lines -->
+      <line x1="-95" y1="0" x2="95" y2="0" stroke="#ddd" stroke-width="1"/>
+      <line x1="0" y1="-95" x2="0" y2="95" stroke="#ddd" stroke-width="1"/>
+      <line x1="-67" y1="-67" x2="67" y2="67" stroke="#ddd" stroke-width="1"/>
+      <line x1="-67" y1="67" x2="67" y2="-67" stroke="#ddd" stroke-width="1"/>
+
+      <!-- Bin Labels -->
+      <text x="70" y="-20" font-size="11" fill="#777">Bin 0 (0-45°)</text>
+      
+      <!-- Highlighted Bins -->
+      <path d="M 0 0 L 67 -67 A 95 95 0 0 0 0 -95 Z" fill="#2980b9" opacity="0.3"/>
+      <text x="35" y="-70" font-size="12" font-weight="bold" fill="#2980b9">Bin 1 [P1]</text>
+
+      <path d="M 0 0 L 0 -95 A 95 95 0 0 0 -67 -67 Z" fill="#27ae60" opacity="0.3"/>
+      <text x="-55" y="-70" font-size="12" font-weight="bold" fill="#27ae60">Bin 2 [P2]</text>
+
+      <text x="-90" y="-20" font-size="11" fill="#777">Bin 3</text>
+
+      <path d="M 0 0 L -95 0 A 95 95 0 0 0 -67 67 Z" fill="#8e44ad" opacity="0.3"/>
+      <text x="-90" y="45" font-size="12" font-weight="bold" fill="#8e44ad">Bin 4 [P3]</text>
+
+      <text x="-40" y="80" font-size="11" fill="#777">Bin 5</text>
+      <text x="20" y="80" font-size="11" fill="#777">Bin 6</text>
+
+      <path d="M 0 0 L 67 67 A 95 95 0 0 0 95 0 Z" fill="#e67e22" opacity="0.3"/>
+      <text x="50" y="45" font-size="12" font-weight="bold" fill="#e67e22">Bin 7 [P4]</text>
+
+      <circle cx="0" cy="0" r="4" fill="#333"/>
+    </g>
+  </g>
+
+  <!-- Part 3: Bar Chart Histogram -->
+  <g transform="translate(600, 70)">
+    <text x="140" y="0" font-size="15" font-weight="bold" text-anchor="middle" fill="#2c3e50">3. Orientation Histogram Vector</text>
+
+    <!-- Axes -->
+    <line x1="30" y1="260" x2="280" y2="260" stroke="#333" stroke-width="2"/>
+    <line x1="30" y1="260" x2="30" y2="50" stroke="#333" stroke-width="2"/>
+    
+    <!-- Y-axis Ticks & Labels (scale: 35px per unit) -->
+    <!-- Max magnitude is 5.0 -> height 175px -->
+    <text x="20" y="265" font-size="11" text-anchor="end" fill="#555">0</text>
+    <line x1="26" y1="190" x2="30" y2="190" stroke="#555"/>
+    <text x="20" y="195" font-size="11" text-anchor="end" fill="#555">2</text>
+    <line x1="26" y1="120" x2="30" y2="120" stroke="#555"/>
+    <text x="20" y="125" font-size="11" text-anchor="end" fill="#555">4</text>
+    <line x1="26" y1="85" x2="30" y2="85" stroke="#555"/>
+    <text x="20" y="90" font-size="11" text-anchor="end" fill="#555">5</text>
+
+    <!-- Bars (width 24, gap 6) -->
+    <!-- Bin 0: 0 -->
+    <rect x="36" y="259" width="24" height="1" fill="#ccc"/>
+    <text x="48" y="278" font-size="11" text-anchor="middle" fill="#555">B0</text>
+
+    <!-- Bin 1: 5.0 (height 175) -->
+    <rect x="66" y="85" width="24" height="175" fill="#2980b9" rx="2"/>
+    <text x="78" y="75" font-size="11" font-weight="bold" fill="#2980b9" text-anchor="middle">5.0</text>
+    <text x="78" y="278" font-size="11" font-weight="bold" text-anchor="middle" fill="#2980b9">B1</text>
+
+    <!-- Bin 2: 5.0 (height 175) -->
+    <rect x="96" y="85" width="24" height="175" fill="#27ae60" rx="2"/>
+    <text x="108" y="75" font-size="11" font-weight="bold" fill="#27ae60" text-anchor="middle">5.0</text>
+    <text x="108" y="278" font-size="11" font-weight="bold" text-anchor="middle" fill="#27ae60">B2</text>
+
+    <!-- Bin 3: 0 -->
+    <rect x="126" y="259" width="24" height="1" fill="#ccc"/>
+    <text x="138" y="278" font-size="11" text-anchor="middle" fill="#555">B3</text>
+
+    <!-- Bin 4: 4.0 (height 140) -->
+    <rect x="156" y="120" width="24" height="140" fill="#8e44ad" rx="2"/>
+    <text x="168" y="110" font-size="11" font-weight="bold" fill="#8e44ad" text-anchor="middle">4.0</text>
+    <text x="168" y="278" font-size="11" font-weight="bold" text-anchor="middle" fill="#8e44ad">B4</text>
+
+    <!-- Bin 5: 0 -->
+    <rect x="186" y="259" width="24" height="1" fill="#ccc"/>
+    <text x="198" y="278" font-size="11" text-anchor="middle" fill="#555">B5</text>
+
+    <!-- Bin 6: 0 -->
+    <rect x="216" y="259" width="24" height="1" fill="#ccc"/>
+    <text x="228" y="278" font-size="11" text-anchor="middle" fill="#555">B6</text>
+
+    <!-- Bin 7: 4.24 (height 148) -->
+    <rect x="246" y="112" width="24" height="148" fill="#e67e22" rx="2"/>
+    <text x="258" y="102" font-size="11" font-weight="bold" fill="#e67e22" text-anchor="middle">4.24</text>
+    <text x="258" y="278" font-size="11" font-weight="bold" text-anchor="middle" fill="#e67e22">B7</text>
+
+    <!-- Vector output text box -->
+    <rect x="20" y="305" width="255" height="50" rx="5" fill="#f8f9fa" stroke="#ccc"/>
+    <text x="147" y="325" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">Final 8D Orientation Vector H:</text>
+    <text x="147" y="343" font-size="11" fill="#c0392b" font-weight="bold" text-anchor="middle">[0, 5.0, 5.0, 0, 4.0, 0, 0, 4.24]</text>
+  </g>
+</svg>

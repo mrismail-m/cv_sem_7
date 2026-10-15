@@ -2,7 +2,7 @@
 
 **Course Code**: CS-482 / CV  
 **Total Marks**: 22 Marks  
-**Format**: Written Assignment Reference Solutions
+**Format**: Written Assignment Reference Solutions (with Copyable Diagrams)
 
 ---
 
@@ -10,22 +10,17 @@
 
 Consider the following $4 \times 4$ grayscale image patch extracted from a $16 \times 16$ image:
 
+### Visual Diagram for Handwritten Sheet:
+![Question 1: Image Gradient and Vector Diagram](./figures/q1_gradient_vector.svg)
+
 ### Image Patch $I$:
 
-| Row / Col | Col 1 | Col 2 | Col 3 | Col 4 |
+| Row / Col | Col 1 ($x=1$) | Col 2 ($x=2$) | Col 3 ($x=3$) | Col 4 ($x=4$) |
 | :---: | :---: | :---: | :---: | :---: |
-| **Row 1** | 10 | 10 | 10 | 10 |
-| **Row 2** | 10 | **20** | 30 | 40 |
-| **Row 3** | 10 | 30 | 50 | 70 |
-| **Row 4** | 10 | 40 | 70 | 100 |
-
-```
-Matrix Representation:
-[ 10   10   10   10  ]
-[ 10   20   30   40  ]   <- Center pixel at (2,2) = 20
-[ 10   30   50   70  ]
-[ 10   40   70   100 ]
-```
+| **Row 1 ($y=1$)** | 10 | **10** (Top) | 10 | 10 |
+| **Row 2 ($y=2$)** | **10** (Left) | **20** (Center) | **30** (Right) | 40 |
+| **Row 3 ($y=3$)** | 10 | **30** (Bottom) | 50 | 70 |
+| **Row 4 ($y=4$)** | 10 | 40 | 70 | 100 |
 
 Using the central difference method, calculate the horizontal and vertical gradients at pixel $I(2,2) = 20$:
 
@@ -43,10 +38,10 @@ $$
 
 Let $x$ denote horizontal index (column) and $y$ denote vertical index (row):
 * Center: $I(2,2) = 20$
-* Right: $I(3,2) = 30$
-* Left: $I(1,2) = 10$
-* Bottom: $I(2,3) = 30$
-* Top: $I(2,1) = 10$
+* Right neighbor: $I(x+1, y) = I(3,2) = 30$
+* Left neighbor: $I(x-1, y) = I(1,2) = 10$
+* Bottom neighbor: $I(x, y+1) = I(2,3) = 30$
+* Top neighbor: $I(x, y-1) = I(2,1) = 10$
 
 **Horizontal Gradient ($G_x$):**
 $$
@@ -97,19 +92,8 @@ $$
 
 A small image region at two different Gaussian scales is represented by:
 
-### Scale $L_\sigma$:
-
-| 10 | 20 | 10 |
-|:---:|:---:|:---:|
-| 20 | **80** | 20 |
-| 10 | 20 | 10 |
-
-### Scale $L_{k\sigma}$:
-
-| 15 | 25 | 15 |
-|:---:|:---:|:---:|
-| 25 | **60** | 25 |
-| 15 | 25 | 15 |
+### Visual Matrix Subtraction Diagram:
+![Question 2: DoG Matrix Subtraction and Extremum](./figures/q2_dog_matrix.svg)
 
 Calculate the Difference of Gaussians matrix:
 $$
@@ -162,16 +146,8 @@ The center value ($-20$) is strictly less than all eight surrounding spatial nei
 
 Given DoG values in a local neighborhood:
 
-```
-D = [  5   8   6 ]
-    [  7  15   9 ]
-    [  4  10   3 ]
-```
-
-| 5 | 8 | 6 |
-|:---:|:---:|:---:|
-| 7 | **15** | 9 |
-| 4 | 10 | 3 |
+### Visual 3D Scale-Space 26-Neighbors Diagram:
+![Question 3: Scale Space 26 Neighbors Diagram](./figures/q3_scale_space_26_neighbors.svg)
 
 The center pixel has value $15$.
 
@@ -180,7 +156,7 @@ The center pixel has value $15$.
 ### Part a: Identify the center pixel and its eight spatial neighbors
 
 * **Center pixel**: $D(2,2) = 15$
-* **Eight neighbors**:
+* **Eight spatial neighbors**:
   * Top-Left: $5$, Top: $8$, Top-Right: $6$
   * Left: $7$, Right: $9$
   * Bottom-Left: $4$, Bottom: $10$, Bottom-Right: $3$
@@ -229,6 +205,9 @@ Given four pixels with local gradients:
 | $P_2$ | $0$ | $5$ |
 | $P_3$ | $-4$ | $0$ |
 | $P_4$ | $3$ | $-3$ |
+
+### Visual Vectors, 8-Bin Compass & Orientation Histogram:
+![Question 4: Vectors, Compass and Histogram Diagram](./figures/q4_orientation_histogram.svg)
 
 ---
 
@@ -295,7 +274,7 @@ Using $\theta = \text{atan2}(G_y, G_x)$ mapped to $[0^\circ, 360^\circ)$:
 | **Bin 6** | $[270^\circ, 315^\circ)$ | $0$ | **$0.00$** |
 | **Bin 7** | $[315^\circ, 360^\circ)$ | $M_4 \approx 4.24$ | **$4.24$** |
 
-**Final 8-Bin Histogram Vector**:
+**Final 8-Bin Orientation Histogram Vector**:
 $$
 \mathbf{H} = [0.00, \; 5.00, \; 5.00, \; 0.00, \; 4.00, \; 0.00, \; 0.00, \; 4.24]
 $$

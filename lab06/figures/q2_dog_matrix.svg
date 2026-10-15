@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 360" width="850" height="360" style="background:#ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <!-- Title -->
+  <text x="425" y="30" font-size="20" font-weight="bold" text-anchor="middle" fill="#333333">Question 2: Difference of Gaussians (DoG) Calculation</text>
+  <text x="425" y="55" font-size="14" text-anchor="middle" fill="#666">D(x, y, σ) = Lkσ(x, y) - Lσ(x, y)</text>
+
+  <!-- L_kσ Matrix -->
+  <g transform="translate(60, 80)">
+    <text x="80" y="-10" font-size="16" font-weight="bold" text-anchor="middle" fill="#2c3e50">Lkσ (Scale kσ)</text>
+    <!-- 3x3 -->
+    <rect x="0" y="5" width="50" height="50" fill="#f0f4f8" stroke="#ccc" stroke-width="2"/>
+    <text x="25" y="36" font-size="16" text-anchor="middle">15</text>
+    <rect x="50" y="5" width="50" height="50" fill="#f0f4f8" stroke="#ccc" stroke-width="2"/>
+    <text x="75" y="36" font-size="16" text-anchor="middle">25</text>
+    <rect x="100" y="5" width="50" height="50" fill="#f0f4f8" stroke="#ccc" stroke-width="2"/>
+    <text x="125" y="36" font-size="16" text-anchor="middle">15</text>
+
+    <rect x="0" y="55" width="50" height="50" fill="#f0f4f8" stroke="#ccc" stroke-width="2"/>
+    <text x="25" y="86" font-size="16" text-anchor="middle">25</text>
+    <rect x="50" y="55" width="50" height="50" fill="#d0e1fd" stroke="#4a90e2" stroke-width="3"/>
+    <text x="75" y="86" font-size="18" font-weight="bold" fill="#1b4f72" text-anchor="middle">60</text>
+    <rect x="100" y="55" width="50" height="50" fill="#f0f4f8" stroke="#ccc" stroke-width="2"/>
+    <text x="125" y="86" font-size="16" text-anchor="middle">25</text>
+
+    <rect x="0" y="105" width="50" height="50" fill="#f0f4f8" stroke="#ccc" stroke-width="2"/>
+    <text x="25" y="136" font-size="16" text-anchor="middle">15</text>
+    <rect x="50" y="105" width="50" height="50" fill="#f0f4f8" stroke="#ccc" stroke-width="2"/>
+    <text x="75" y="136" font-size="16" text-anchor="middle">25</text>
+    <rect x="100" y="105" width="50" height="50" fill="#f0f4f8" stroke="#ccc" stroke-width="2"/>
+    <text x="125" y="136" font-size="16" text-anchor="middle">15</text>
+  </g>
+
+  <!-- Minus Sign -->
+  <text x="250" y="170" font-size="36" font-weight="bold" fill="#7f8c8d" text-anchor="middle">−</text>
+
+  <!-- L_σ Matrix -->
+  <g transform="translate(290, 80)">
+    <text x="80" y="-10" font-size="16" font-weight="bold" text-anchor="middle" fill="#2c3e50">Lσ (Scale σ)</text>
+    <rect x="0" y="5" width="50" height="50" fill="#f0f4f8" stroke="#ccc" stroke-width="2"/>
+    <text x="25" y="36" font-size="16" text-anchor="middle">10</text>
+    <rect x="50" y="5" width="50" height="50" fill="#f0f4f8" stroke="#ccc" stroke-width="2"/>
+    <text x="75" y="36" font-size="16" text-anchor="middle">20</text>
+    <rect x="100" y="5" width="50" height="50" fill="#f0f4f8" stroke="#ccc" stroke-width="2"/>
+    <text x="125" y="36" font-size="16" text-anchor="middle">10</text>
+
+    <rect x="0" y="55" width="50" height="50" fill="#f0f4f8" stroke="#ccc" stroke-width="2"/>
+    <text x="25" y="86" font-size="16" text-anchor="middle">20</text>
+    <rect x="50" y="55" width="50" height="50" fill="#d0e1fd" stroke="#4a90e2" stroke-width="3"/>
+    <text x="75" y="86" font-size="18" font-weight="bold" fill="#1b4f72" text-anchor="middle">80</text>
+    <rect x="100" y="55" width="50" height="50" fill="#f0f4f8" stroke="#ccc" stroke-width="2"/>
+    <text x="125" y="86" font-size="16" text-anchor="middle">20</text>
+
+    <rect x="0" y="105" width="50" height="50" fill="#f0f4f8" stroke="#ccc" stroke-width="2"/>
+    <text x="25" y="136" font-size="16" text-anchor="middle">10</text>
+    <rect x="50" y="105" width="50" height="50" fill="#f0f4f8" stroke="#ccc" stroke-width="2"/>
+    <text x="75" y="136" font-size="16" text-anchor="middle">20</text>
+    <rect x="100" y="105" width="50" height="50" fill="#f0f4f8" stroke="#ccc" stroke-width="2"/>
+    <text x="125" y="136" font-size="16" text-anchor="middle">10</text>
+  </g>
+
+  <!-- Equals Sign -->
+  <text x="480" y="170" font-size="36" font-weight="bold" fill="#7f8c8d" text-anchor="middle">=</text>
+
+  <!-- DoG Result Matrix -->
+  <g transform="translate(520, 80)">
+    <text x="80" y="-10" font-size="16" font-weight="bold" text-anchor="middle" fill="#d9534f">DoG Matrix D</text>
+    
+    <!-- 8 positive neighbors (+5) -->
+    <rect x="0" y="5" width="50" height="50" fill="#e8f8e8" stroke="#5cb85c" stroke-width="2"/>
+    <text x="25" y="36" font-size="16" font-weight="bold" fill="#28a745" text-anchor="middle">+5</text>
+    <rect x="50" y="5" width="50" height="50" fill="#e8f8e8" stroke="#5cb85c" stroke-width="2"/>
+    <text x="75" y="36" font-size="16" font-weight="bold" fill="#28a745" text-anchor="middle">+5</text>
+    <rect x="100" y="5" width="50" height="50" fill="#e8f8e8" stroke="#5cb85c" stroke-width="2"/>
+    <text x="125" y="36" font-size="16" font-weight="bold" fill="#28a745" text-anchor="middle">+5</text>
+
+    <rect x="0" y="55" width="50" height="50" fill="#e8f8e8" stroke="#5cb85c" stroke-width="2"/>
+    <text x="25" y="86" font-size="16" font-weight="bold" fill="#28a745" text-anchor="middle">+5</text>
+    
+    <!-- Center -20 -->
+    <rect x="50" y="55" width="50" height="50" fill="#f8d7da" stroke="#dc3545" stroke-width="3"/>
+    <text x="75" y="86" font-size="18" font-weight="bold" fill="#721c24" text-anchor="middle">-20</text>
+    
+    <rect x="100" y="55" width="50" height="50" fill="#e8f8e8" stroke="#5cb85c" stroke-width="2"/>
+    <text x="125" y="86" font-size="16" font-weight="bold" fill="#28a745" text-anchor="middle">+5</text>
+
+    <rect x="0" y="105" width="50" height="50" fill="#e8f8e8" stroke="#5cb85c" stroke-width="2"/>
+    <text x="25" y="136" font-size="16" font-weight="bold" fill="#28a745" text-anchor="middle">+5</text>
+    <rect x="50" y="105" width="50" height="50" fill="#e8f8e8" stroke="#5cb85c" stroke-width="2"/>
+    <text x="75" y="136" font-size="16" font-weight="bold" fill="#28a745" text-anchor="middle">+5</text>
+    <rect x="100" y="105" width="50" height="50" fill="#e8f8e8" stroke="#5cb85c" stroke-width="2"/>
+    <text x="125" y="136" font-size="16" font-weight="bold" fill="#28a745" text-anchor="middle">+5</text>
+  </g>
+
+  <!-- Explanation Banner -->
+  <g transform="translate(60, 275)">
+    <rect x="0" y="0" width="730" height="60" rx="6" fill="#f8f9fa" stroke="#bdc3c7"/>
+    <text x="20" y="25" font-size="13" font-weight="bold" fill="#c0392b">Largest Absolute DoG Value: |-20| = 20 (Center Pixel)</text>
+    <text x="20" y="45" font-size="13" fill="#2c3e50">Local Extremum: Center (-20) is strictly less than all 8 spatial neighbors (+5) -> Local Minimum Candidate (Dark Blob)</text>
+  </g>
+</svg>
