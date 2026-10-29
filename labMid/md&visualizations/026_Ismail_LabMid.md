@@ -11,7 +11,7 @@ This report presents the results and explanations from the executed Colab notebo
 
 I predicted HOG would lose more accuracy under rotation because rotating the cell changes gradient directions and their positions within fixed cells. I also predicted HOG would lose more accuracy under Gaussian noise because noise introduces additional local gradients, while SIFT's descriptor smoothing may reduce some of their effect. These were hypotheses; fixed-grid SIFT was not assumed to be rotation invariant.
 
-## Q1. Data setup (3 marks)
+## Q1. Data setup 
 
 Registration 026 gives a random seed of **26**, HOG cells of **8 × 8**, and a SIFT grid of **6 × 6**. Images were selected from the official train, validation and test splits, converted to grayscale, resized to **128 × 128**, and scaled to **[0, 1]**.
 
@@ -26,7 +26,7 @@ Registration 026 gives a random seed of **26**, HOG cells of **8 × 8**, and a S
 
 ![Four training examples per class](026_Ismail_LabMid_files/figure_01.png)
 
-## Q2. HOG + SVM (6 marks)
+## Q2. HOG + SVM 
 
 HOG summarizes local gradient directions, describing edges and intensity patterns. The extractor used **9 orientation bins**, **8 × 8 pixels per cell**, **2 × 2 cells per block**, and **L2-Hys block normalization**.
 
@@ -61,7 +61,7 @@ The selected C was **0.1**. Validation accuracy was **73.33%** (88/120), and mac
 
 Rows show true labels and columns show predicted labels. Diagonal entries are correct classifications; off-diagonal entries are mistakes.
 
-## Q3. SIFT + SVM (7 marks)
+## Q3. SIFT + SVM
 
 ### Normal SIFT detection
 
@@ -100,7 +100,7 @@ The selected C was **1**. Validation accuracy was **71.67%** (86/120), and macro
 
 ![SIFT validation confusion matrix](026_Ismail_LabMid_files/figure_05.png)
 
-## Q4. Robustness (6 marks)
+## Q4. Robustness 
 
 Both validation-selected models were frozen. Each was evaluated on the same **120 test images** under three conditions: clean, rotated by **20 degrees**, and Gaussian noise with **σ = 0.05**.
 
