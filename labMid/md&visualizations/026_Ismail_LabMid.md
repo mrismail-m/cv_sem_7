@@ -21,7 +21,6 @@ Registration 026 gives a random seed of **26**, HOG cells of **8 × 8**, and a S
 | Validation | 30 | 30 | 30 | 30 | 120 | (120, 128, 128) |
 | Test | 30 | 30 | 30 | 30 | 120 | (120, 128, 128) |
 
-The corresponding label-array shapes were **(400,)**, **(120,)** and **(120,)**. The observed pixel ranges were 0.1294–0.9294 for training, 0.1529–0.9373 for validation, and 0.1255–0.9333 for test. Test data was prepared and counted for Q1; it was not used for classifier selection.
 
 ### Four training examples per class
 
@@ -56,9 +55,7 @@ Feature scaling was fitted on training data only. LinearSVC was trained with eac
 | 1 | 1.0 | 0.733333 | 0.73165 |
 | 2 | 10.0 | 0.733333 | 0.73165 |
 
-The selected C was **0.1**. Validation accuracy was **73.33%** (88/120), and macro-F1 was **0.7316**. All three C values gave the same validation predictions' aggregate scores; this does not mean their fitted parameters were identical.
-
-Accuracy measures the proportion of correct predictions. Macro-F1 averages the per-class F1 scores equally, combining precision and recall for each class.
+The selected C was **0.1**. Validation accuracy was **73.33%** (88/120), and macro-F1 was **0.7316**. All three C values gave the same validation predictions' aggregate scores.
 
 ![HOG validation confusion matrix](026_Ismail_LabMid_files/figure_03.png)
 
@@ -83,11 +80,11 @@ Different numbers of keypoints produce different-length concatenated descriptor 
 
 ### Fixed-grid solution and feature length
 
-A regular **6 × 6 grid** supplied **36 keypoints**, each with size **32**. SIFT computed a **128-value descriptor** at each grid point, and descriptors were joined in a consistent order.
+A regular **6 × 6 grid** supplied **36 keypoints**. SIFT computed a **128-value descriptor** at each grid point, and descriptors were joined in a consistent order.
 
 **Feature length = 6 × 6 × 128 = 4,608.**
 
-The printed training feature shape was **(400, 4608)**. Keypoint angles were fixed at zero, so this implementation did not use normal SIFT's detected-keypoint orientation assignment; its rotation robustness was measured experimentally.
+The printed training feature shape was **(400, 4608)**.
 
 ### Validation and classifier selection
 
@@ -99,13 +96,13 @@ The same training-only scaling and validation selection procedure was applied to
 | 1 | 1.0 | 0.716667 | 0.717466 |
 | 2 | 10.0 | 0.716667 | 0.717466 |
 
-The selected C was **1**. Validation accuracy was **71.67%** (86/120), and macro-F1 was **0.7175**. C = 1 and C = 10 tied, so the smaller value was retained.
+The selected C was **1**. Validation accuracy was **71.67%** (86/120), and macro-F1 was **0.7175**.
 
 ![SIFT validation confusion matrix](026_Ismail_LabMid_files/figure_05.png)
 
 ## Q4. Robustness (6 marks)
 
-Both validation-selected models were frozen. Each was evaluated on the same **120 test images** under three conditions: clean, rotated by **20 degrees**, and Gaussian noise with **σ = 0.05** on the [0, 1] scale. Transformations were applied to images before feature extraction. Rotation used reflected borders, and noisy pixels were clipped to [0, 1].
+Both validation-selected models were frozen. Each was evaluated on the same **120 test images** under three conditions: clean, rotated by **20 degrees**, and Gaussian noise with **σ = 0.05**.
 
 ![Clean, rotated and noisy versions of the same test image](026_Ismail_LabMid_files/figure_06.png)
 
@@ -116,59 +113,6 @@ Both validation-selected models were frozen. Each was evaluated on the same **12
 | HOG + SVM | 77.50% (93/120) | 67.50% (81/120) | 25.00% (30/120) |
 | SIFT + SVM | 78.33% (94/120) | 73.33% (88/120) | 78.33% (94/120) |
 
-
-### Was the prediction correct? Three-sentence answer
-
-My rotation prediction was supported because HOG lost 10 percentage points of accuracy, while SIFT lost 5 percentage points. My noise prediction was also supported because HOG lost 52.5 percentage points, while SIFT showed no net accuracy loss. Therefore, fixed-grid SIFT was more robust on this sampled test set, although this experiment does not establish a universal ranking of the descriptors.
-
-Equal clean and noisy SIFT accuracies mean the number of correct predictions was unchanged; they do not prove that every individual prediction stayed the same.
-
-## Q5. Short answers and AI log (3 marks)
-
-### (a) Why does HOG use block normalization?
-
-HOG uses block normalization to reduce sensitivity to changes in illumination and contrast that alter overall gradient strength. It emphasizes relative gradient patterns rather than absolute magnitudes; this experiment used L2-Hys normalization.
-
-### (b) Why is choosing C using the test set wrong?
-
-Choosing C using test results lets test information influence model selection, producing a potentially optimistic estimate of performance on unseen data. C was therefore selected using validation accuracy, and the test set was reserved for final evaluation in Q4.
-
-### Which classes were confused most?
-
-The following are the clean-test confusion matrices. Rows are true classes and columns are predicted classes; each row contains 30 images.
-
-### HOG + SVM: clean-test confusion matrix
-
-|  | eosinophil | monocyte | neutrophil | platelet |
-| --- | --- | --- | --- | --- |
-| eosinophil | 24 | 1 | 4 | 1 |
-| monocyte | 7 | 22 | 1 | 0 |
-| neutrophil | 8 | 5 | 17 | 0 |
-| platelet | 0 | 0 | 0 | 30 |
-
-HOG most often confused **eosinophils and neutrophils**: 4 eosinophils were predicted as neutrophils and 8 neutrophils as eosinophils, giving **12 combined errors**.
-
-### SIFT + SVM: clean-test confusion matrix
-
-|  | eosinophil | monocyte | neutrophil | platelet |
-| --- | --- | --- | --- | --- |
-| eosinophil | 18 | 9 | 2 | 1 |
-| monocyte | 6 | 23 | 1 | 0 |
-| neutrophil | 3 | 2 | 24 | 1 |
-| platelet | 0 | 0 | 1 | 29 |
-
-SIFT most often confused **eosinophils and monocytes**: 9 eosinophils were predicted as monocytes and 6 monocytes as eosinophils, giving **15 combined errors**.
-
-Grayscale may make these distinctions harder because it removes staining color information, leaving the models to rely on intensity, shape and texture. This is a possible explanation, not a demonstrated cause, because no separate color-versus-grayscale experiment was performed.
-
-### AI assistance log
-
-| Prompt (one line) | What changed | How the result was checked |
-|---|---|---|
-| Create a simple Colab notebook aligned with the exam rubric; registration 026. | Configured the personal settings, feature extractors, validation selection and robustness evaluation. | Saved outputs confirmed split counts, feature lengths, keypoint statistics, plots and evaluation results. |
-| Explain the code and exam answers. | Added learning explanations without changing the experiment. | Explanations were compared with the implementation and saved results. |
-| The SVM cell runs a long time without output; help fix it. | Changed LinearSVC to dual=True and added progress messages. | All three C values completed for both models and printed validation results. |
-| Review the executed notebook and create a GitHub report containing results and explanations without code. | Corrected the title and execution-status text and exported this report with saved plots and tables. | Checked that report values match saved outputs and that all six image links resolve. |
 
 ## Conclusion
 
