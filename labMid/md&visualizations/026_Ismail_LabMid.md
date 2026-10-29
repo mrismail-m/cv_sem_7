@@ -116,12 +116,6 @@ Both validation-selected models were frozen. Each was evaluated on the same **12
 | HOG + SVM | 77.50% (93/120) | 67.50% (81/120) | 25.00% (30/120) |
 | SIFT + SVM | 78.33% (94/120) | 73.33% (88/120) | 78.33% (94/120) |
 
-Accuracy loss is clean accuracy minus perturbed accuracy.
-
-| Model | Rotation loss | Noise loss |
-|---|---:|---:|
-| HOG + SVM | 10.00 percentage points | 52.50 percentage points |
-| SIFT + SVM | 5.00 percentage points | 0.00 percentage points |
 
 ### Was the prediction correct? Three-sentence answer
 
