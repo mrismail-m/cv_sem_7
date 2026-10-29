@@ -24,7 +24,7 @@ Registration 026 gives a random seed of **26**, HOG cells of **8 × 8**, and a S
 
 ### Four training examples per class
 
-![Four training examples per class](026_Ismail_LabMid_files/figure_01.png)
+![Four training examples per class](labMid/md&visualizations/figure_01.png)
 
 ## Q2. HOG + SVM 
 
@@ -43,7 +43,7 @@ The notebook printed a training feature shape of **(400, 8100)**, confirming the
 
 The top row contains one training image per class; the bottom row shows its HOG visualization. Bright strokes indicate strong local gradients.
 
-![Original images and HOG visualizations](026_Ismail_LabMid_files/figure_02.png)
+![Original images and HOG visualizations](0labMid/md&visualizations/figure_02.png)
 
 ### Validation and classifier selection
 
@@ -57,7 +57,7 @@ Feature scaling was fitted on training data only. LinearSVC was trained with eac
 
 The selected C was **0.1**. Validation accuracy was **73.33%** (88/120), and macro-F1 was **0.7316**. All three C values gave the same validation predictions' aggregate scores.
 
-![HOG validation confusion matrix](026_Ismail_LabMid_files/figure_03.png)
+![HOG validation confusion matrix](0labMid/md&visualizations/figure_03.png)
 
 Rows show true labels and columns show predicted labels. Diagonal entries are correct classifications; off-diagonal entries are mistakes.
 
@@ -74,7 +74,7 @@ Normal SIFT detection was run on all **400 training images**.
 | Maximum keypoints | 188 |
 | Images with zero keypoints | 0 |
 
-![Normal SIFT keypoints on a training image](026_Ismail_LabMid_files/figure_04.png)
+![Normal SIFT keypoints on a training image](0labMid/md&visualizations/figure_04.png)
 
 Different numbers of keypoints produce different-length concatenated descriptor vectors, but an SVM requires every image to have the same number of input features.
 
@@ -98,13 +98,13 @@ The same training-only scaling and validation selection procedure was applied to
 
 The selected C was **1**. Validation accuracy was **71.67%** (86/120), and macro-F1 was **0.7175**.
 
-![SIFT validation confusion matrix](026_Ismail_LabMid_files/figure_05.png)
+![SIFT validation confusion matrix](0labMid/md&visualizations/figure_05.png)
 
 ## Q4. Robustness 
 
 Both validation-selected models were frozen. Each was evaluated on the same **120 test images** under three conditions: clean, rotated by **20 degrees**, and Gaussian noise with **σ = 0.05**.
 
-![Clean, rotated and noisy versions of the same test image](026_Ismail_LabMid_files/figure_06.png)
+![Clean, rotated and noisy versions of the same test image](0labMid/md&visualizations/figure_06.png)
 
 ### Test results
 
