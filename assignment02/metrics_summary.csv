@@ -1,0 +1,7 @@
+Algorithm,MAE ($k),MSE ($k^2),RMSE ($k),R2 Score
+Linear Regression,13.8532,303.1889,17.4123,0.9864
+Decision Tree,46.336,3662.53,60.5188,0.8362
+Random Forest,24.8342,1015.4149,31.8656,0.9546
+Neural Network (MLP),14.6067,334.6577,18.2937,0.985
+XGBoost,20.3984,637.5038,25.2488,0.9715
+K-Nearest Neighbors,29.7992,1386.6759,37.2381,0.938
