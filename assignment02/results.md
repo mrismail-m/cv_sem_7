@@ -35,13 +35,13 @@ Evaluated across the 200 held-out test observations:
 ## 3. Visualizations
 
 ### 3.1 Actual vs. Predicted Parity Plots
-![Actual vs Predicted Regression Comparison](./actual_vs_predicted.png)
+![Actual vs Predicted Regression Comparison](./assets/actual_vs_predicted.png)
 
 ### 3.2 Residual Error Distributions
-![Residual Error Distributions](./residuals_distribution.png)
+![Residual Error Distributions](./assets/residuals_distribution.png)
 
 ### 3.3 Comparative Performance Metrics
-![Comparative Performance Metrics](./metrics_comparison.png)
+![Comparative Performance Metrics](./assets/metrics_comparison.png)
 
 ---
 
@@ -52,4 +52,4 @@ Evaluated across the 200 held-out test observations:
 * **Tree Quantization Errors**: Decision Trees ($R^2 = 0.8362$), Random Forests ($R^2 = 0.9546$), and XGBoost ($R^2 = 0.9715$) partition continuous feature space into orthogonal piecewise-constant hyper-rectangles. Approximating smooth linear hyperplanes via discrete axis-aligned steps incurs quantization error, which inflates residual variance compared to parametric estimators.
 * **Curse of Dimensionality in KNN**: KNN recorded the second highest error (RMSE $= 37.2381\$k$, $R^2 = 0.9380$). In a 6-dimensional continuous space, distance concentration diminishes neighborhood local density, causing query predictions to average samples distributed across wider spatial radii.
 
-All executable scripts and interactive workflows are available in [train_evaluate.py](./train_evaluate.py) and [regression_comparison.ipynb](./regression_comparison.ipynb).
+All executable scripts and interactive workflows are available in [train_evaluate.py](./assets/train_evaluate.py) and [regression_comparison.ipynb](./regression_comparison.ipynb).
